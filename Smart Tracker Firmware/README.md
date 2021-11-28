@@ -19,4 +19,8 @@ The devices used are ESP32, BME280 and CCS811 sensors, copper tape and thin 200 
 ![image](https://user-images.githubusercontent.com/44412828/143778327-de745cb0-4d4b-48c5-b014-8ef5688153da.png)
 
 ### Step 5: Uploading the Toit firmware on the device
-Firstly make a Toit account and install toit SDK check here: https://docs.toit.io/getstarted
+Firstly make a Toit account and install toit SDK check here: 
+1. https://docs.toit.io/getstarted
+2. https://docs.toit.io/getstarted/installation
+3. https://pkg.toit.io/
+4. Use command ```toit deploy --device device_name script.yaml``` to deploy the app on toit
