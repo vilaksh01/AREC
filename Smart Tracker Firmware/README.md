@@ -14,3 +14,9 @@ I got the label printed on A4 size sticky paper to make first prototype.
 ### Step 3: Building smart tracking circuit on the label
 <img src="https://user-images.githubusercontent.com/44412828/143777260-804cf60f-97df-42c6-9dba-930bc9d3979d.jpg" width="33%" height="500">|<img src="https://user-images.githubusercontent.com/44412828/143777265-2dce353a-1f56-4cb9-998d-02170ccc6871.jpg" width="33%" height="500">|<img src="https://user-images.githubusercontent.com/44412828/143777267-e4a5a3e8-a165-4f30-814e-42e53b8d30f9.jpg" width="33%" height="500">
 The devices used are ESP32, BME280 and CCS811 sensors, copper tape and thin 200 mA LiPo battery. The choice of the hardware is due to cheap price of ESP32($3) thus it can be easily manufactured on printed PCBs for such smart label applications. Also, for connectivity I am focused on LTE-M since it is easily available in most countries and sooner cheaper LTE modems would be available for such applications. LoRa was another choice here but it is not good for globally moving assets.
+
+### Step 4: Working of the Smart Label Tracker
+![image](https://user-images.githubusercontent.com/44412828/143778327-de745cb0-4d4b-48c5-b014-8ef5688153da.png)
+
+### Step 5: Uploading the Toit firmware on the device
+Firstly make a Toit account and install toit SDK check here: https://docs.toit.io/getstarted
