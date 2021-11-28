@@ -1,0 +1,14 @@
+module ProductDatabase where
+
+import Data.Product
+
+template AddProduct with
+    company : Party
+    buyer: [Party]
+    product : Product
+  where
+    signatory company
+    observer buyer
+
+
+

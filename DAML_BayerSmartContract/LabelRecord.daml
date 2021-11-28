@@ -1,0 +1,51 @@
+module LabelRecord where
+
+import Data.Global
+import Data.Product
+
+type LabelTrackingId = ContractId Label_Tracking
+
+template Label_Tracking
+    with
+        device : Party
+        regulator: Party
+        location: Coordinates
+        temperature: Decimal
+        humidity: Decimal
+        pressure: Decimal
+        productDetails: Product
+        timestamp: Time
+        event: Text
+    where
+        signatory device
+
+        -- regulator can only see the label if it is signed by the regulator and the buyer
+        controller regulator can
+        -- we don't want to publish all sensitive location data received from th label(To maintain integrity and privacy of Bayer and Bayer)
+        -- the buyer can only see those label tracking/tracing data that are signed by the regulator
+            nonconsuming Release_Label_Data: ContractId Publish_Tracking_Record
+              with
+                customer: [Party]
+                note: Text
+              do
+                create Publish_Tracking_Record with ..
+            Purge: () do
+                pure ()
+
+template Publish_Tracking_Record with
+      customer: [Party]
+      regulator: Party
+      note: Text
+      device : Party
+      location: Coordinates
+      temperature: Decimal
+      humidity: Decimal
+      pressure: Decimal
+      productDetails: Product
+      timestamp: Time
+      event: Text
+    where
+        signatory regulator
+        observer customer
+
+

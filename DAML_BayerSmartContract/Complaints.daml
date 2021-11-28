@@ -1,0 +1,63 @@
+module Complaints where
+import Data.Product
+import Data.Global
+
+type RegisterComplaintId = ContractId RegisterComplaint
+-- Report side effects or give feedback about your purchase
+-- The customer is the one who is complaining
+template RegisterComplaint
+  with
+    customer: Party
+    company: Party
+    country: Country
+    coordinates: Coordinates
+    productCategory: Product_Type
+    productName: Text
+    productBatchNumber: Text
+    productUsageStartDate: Time
+    productUsageEndDate: Time
+    productDosageInGramsPerDay: Decimal
+    symptoms: Text
+    complaintDescription: Text
+    timestamp: Time
+  where
+    signatory customer
+    observer company
+
+    controller company can
+    -- The company is the one who is being complained about
+      Assign_Inspector: ContractId ProductInspection
+        with
+          inspector: Party
+          note: Text
+        do
+          create ProductInspection with ..
+
+template ProductInspection
+  with
+    inspector: Party
+    company: Party
+    note: Text
+    country: Country
+    coordinates: Coordinates
+    productCategory: Product_Type
+    productName: Text
+    productBatchNumber: Text
+    productUsageStartDate: Time
+    productUsageEndDate: Time
+    productDosageInGramsPerDay: Decimal
+    symptoms: Text
+    complaintDescription: Text
+    timestamp: Time
+  where
+    signatory company
+    observer inspector
+
+
+
+
+
+
+
+
+
