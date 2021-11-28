@@ -5,7 +5,7 @@ import Data.Product
 template AddProduct with
     company : Party
     buyer: [Party]
-    product : Product
+    product : ProductDataStructure
   where
     signatory company
     observer buyer
