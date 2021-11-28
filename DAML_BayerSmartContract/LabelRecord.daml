@@ -1,9 +1,16 @@
 module LabelRecord where
 
-import Data.Global
 import Data.Product
+import Data.Global
 
 type LabelTrackingId = ContractId Label_Tracking
+
+data Product = Product {
+    product_name : Text,
+    product_type : Product_Type,
+    product_price : Decimal,
+    product_quantity : Int
+} deriving (Eq, Ord, Show)
 
 template Label_Tracking
     with
