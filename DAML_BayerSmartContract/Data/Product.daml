@@ -22,6 +22,7 @@ data Disposal_type = Disposal_type{
  } deriving (Eq, Ord, Show)
 
 
+
 data ProductInformation = ProductInformation {
   productUses: Text,
   symptoms: Text,
@@ -35,7 +36,7 @@ data ProductInformation = ProductInformation {
   mixingInstructions: Text
 } deriving (Eq, Ord, Show)
 
-data Product = Product {
+data ProductDataStructure = ProductDataStructure {
   product_name : Text,
   product_type : Product_Type,
   product_description : Text,
