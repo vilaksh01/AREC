@@ -1,0 +1,55 @@
+module Data.Product where
+
+data Product_Type = Fungicide | Herbicide | Insecticide | SeedGrowth | Nematicide deriving (Eq, Ord, Show)
+
+data First_Aid = First_Aid{
+  if_In_Eyes: Text,
+  if_In_Ears:Text,
+  if_In_Nose: Text,
+  if_Swallowed: Text
+} deriving (Eq, Ord, Show)
+
+data Ingridient = Ingridient{
+  activeIngredient: Text,
+  otherIngredient: Text
+  } deriving (Eq, Ord, Show)
+
+
+data Disposal_type = Disposal_type{
+  chemical_Disposal: Text,
+  container_Disposal: Text,
+  other_Disposal: Text
+ } deriving (Eq, Ord, Show)
+
+
+data ProductInformation = ProductInformation {
+  productUses: Text,
+  symptoms: Text,
+  modeOfAction: Text,
+  turfTolerence: Text,
+  applicationZone: Text,
+  resistanceManagement: Text,
+  irrigationInstructions: Text,
+  restrictions: Text,
+  applicationMethod: Text,
+  mixingInstructions: Text
+} deriving (Eq, Ord, Show)
+
+data Product = Product {
+  product_name : Text,
+  product_type : Product_Type,
+  product_description : Text,
+  ingridients : Ingridient,
+  product_price : Decimal,
+  product_quantity : Int,
+  precautionary_statement : Text,
+  first_aid : First_Aid,
+  environmental_hazard : Text,
+  storage_conditions : Text,
+  productInformation: ProductInformation,
+  disposal : Disposal_type,
+  conditions: Text,
+  disclaimerOfWarranty: Text,
+  limitationOfLiability: Text
+} deriving (Eq, Ord, Show)
+
